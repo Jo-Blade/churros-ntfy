@@ -1,0 +1,6 @@
+(library
+ (name requests)
+ (wrapped false)
+ (preprocess
+  (pps lwt_ppx))
+ (libraries cohttp-lwt-unix notif))

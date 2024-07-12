@@ -1,0 +1,6 @@
+(executable
+ (public_name churros_ntfy)
+ (name main)
+ (preprocess
+  (pps lwt_ppx))
+ (libraries lwt notif requests autopush_ws))

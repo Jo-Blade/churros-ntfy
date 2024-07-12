@@ -1,0 +1,12 @@
+(library
+ (name json)
+ (wrapped false)
+ (preprocess
+  (pps ppx_deriving.show sedlex.ppx))
+ (modules json lexer parser)
+ (libraries menhirLib))
+
+(menhir
+ (modules parser)
+ (flags --comment --explain)
+ (infer true))

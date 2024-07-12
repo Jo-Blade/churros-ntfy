@@ -1,0 +1,6 @@
+(library
+ (name autopush_ws)
+ (wrapped false)
+ (preprocess
+  (pps lwt_ppx))
+ (libraries websocket-lwt-unix timedesc requests))

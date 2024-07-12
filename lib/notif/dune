@@ -1,0 +1,6 @@
+(library
+ (name notif)
+ (wrapped false)
+ (preprocess
+  (pps ppx_deriving.show))
+ (libraries json))
