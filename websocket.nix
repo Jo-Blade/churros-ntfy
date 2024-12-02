@@ -3,16 +3,17 @@
 , fetchFromGitHub
 , cohttp-lwt-unix
 , lwt_log
+, sexplib
 }:
 
 rec {
-  version = "2.16";
+  version = "2.17";
 
   src = fetchFromGitHub {
     owner = "vbmithr";
     repo = "ocaml-websocket";
     rev = "${version}";
-    sha256 = "sha256-AdL5ze5CcSrkAhQlOnKkqCUk76sJagfkH3IB8CBR6wk=";
+    sha256 = "sha256-LYSnmKbfeCZNUpAIlu0Gc+5KRVDTmGDcryepr5DLtrc=";
   };
 
   minimalOCamlVersion = "4.06";
@@ -20,7 +21,7 @@ rec {
   license = lib.licenses.isc;
   maintainers = [ ];
 
-  websocket = buildDunePackage rec {
+  websocket = buildDunePackage {
     pname = "websocket";
 
     inherit version;
@@ -39,14 +40,14 @@ rec {
     };
   };
 
-  websocket-lwt-unix = buildDunePackage rec {
+  websocket-lwt-unix = buildDunePackage {
     pname = "websocket-lwt-unix";
 
     inherit version;
     inherit src;
     inherit minimalOCamlVersion;
 
-    propagatedBuildInputs = [ websocket cohttp-lwt-unix lwt_log ];
+    propagatedBuildInputs = [ websocket cohttp-lwt-unix lwt_log sexplib ];
 
     doCheck = true;
 
