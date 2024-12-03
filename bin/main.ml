@@ -1,5 +1,8 @@
 open Lwt.Infix
 
+(* Initialize prng. Necessary for wss and https to work ! *)
+let () = Mirage_crypto_rng_lwt.initialize (module Mirage_crypto_rng.Fortuna)
+
 (** Read the startCursor value from file 
     @param filename the path to the file to read
   *)
