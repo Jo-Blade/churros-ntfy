@@ -58,7 +58,7 @@ let () =
   | Some (churros_token, subscriptionEndpoint, startcursor_file, ntfy_uri) -> (
       let relay_notifs () =
         Requests.fetch_unread_notifications ~churros_token ~subscriptionEndpoint
-           ~startCursor:(read_startcursor startcursor_file)
+          ~startCursor:(read_startcursor startcursor_file)
         >>= fun (maybe_startCursor, parsed_notifs) ->
         match maybe_startCursor with
         | Some startCursor ->
